@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --bg: #080b0e;
+  --bg2: #0e1318;
+  --bg3: #141a21;
+  --card: #151c25;
+  --card2: #1a2330;
+  --border: #ffffff0d;
+  --border2: #ffffff18;
+  --border3: #ffffff28;
+  --green: #00e87a;
+  --green-dim: #00e87a18;
+  --green-glow: #00e87a35;
+  --gold: #f5c518;
+  --gold-dim: #f5c51815;
+  --red: #ff3b5c;
+  --red-dim: #ff3b5c15;
+  --blue: #4facfe;
+  --blue-dim: #4facfe15;
+  --purple: #a855f7;
+  --purple-dim: #a855f715;
+  --text: #e2eaf4;
+  --text2: #7a8fa8;
+  --text3: #3d5268;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body, #root {
+  height: 100%;
+  background: var(--bg);
+  color: var(--text);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  overflow: hidden;
+}
+
+/* Scrollbar hide */
+::-webkit-scrollbar { display: none; }
+* { scrollbar-width: none; }
+
+/* Animations */
+@keyframes pulse-fire {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.2); }
+}
+@keyframes shimmer {
+  0% { left: -100%; }
+  100% { left: 200%; }
+}
+@keyframes live-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+@keyframes badge-pop {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.04); }
+}
+@keyframes ticker {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+@keyframes xp-pulse {
+  0%, 100% { opacity: 0.7; }
+  50% { opacity: 0.2; }
+}
+
+.animate-pulse-fire { animation: pulse-fire 1.5s ease-in-out infinite; }
+.animate-shimmer { animation: shimmer 3s ease-in-out infinite; }
+.animate-live-pulse { animation: live-pulse 1s ease-in-out infinite; }
+.animate-badge-pop { animation: badge-pop 2s ease-in-out infinite; }
+.animate-ticker { animation: ticker 25s linear infinite; }
+
+/* Form inputs */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button { -webkit-appearance: none; }
+input[type="number"] { -moz-appearance: textfield; }
+
+/* Active states */
+button:active { transform: scale(0.98); }

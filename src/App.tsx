@@ -1,4 +1,5 @@
 import { useAuth } from './hooks/useAuth'
+import { usePlausible, useAdSense } from './hooks/useAnalytics'
 import { Landing } from './pages/Landing'
 import { Auth } from './pages/Auth'
 import { Dashboard } from './pages/Dashboard'
@@ -8,22 +9,21 @@ export default function App() {
   const { user, loading } = useAuth()
   const [showAuth, setShowAuth] = useState(false)
 
+  usePlausible()
+  useAdSense()
+
   if (loading) {
     return (
       <div style={{
         height: '100vh', display: 'flex', flexDirection: 'column',
-        alignItems: 'center', justifyContent: 'center', background: 'var(--bg)', gap: 16
+        alignItems: 'center', justifyContent: 'center',
+        background: 'var(--bg)', gap: 16
       }}>
         <div style={{ fontSize: 40 }}>⚽</div>
-        <div style={{
-          width: 40, height: 4, background: 'var(--border2)',
-          borderRadius: 2, overflow: 'hidden'
-        }}>
-          <div style={{
-            height: '100%', width: '60%', background: 'var(--green)',
-            animation: 'shimmer 1s ease-in-out infinite'
-          }} />
+        <div style={{ width: 120, height: 4, background: 'var(--card)', borderRadius: 2, overflow: 'hidden' }}>
+          <div style={{ height: '100%', width: '60%', background: 'var(--green)', borderRadius: 2 }} />
         </div>
+        <div style={{ fontSize: 12, color: 'var(--text3)' }}>AI Football Hub</div>
       </div>
     )
   }

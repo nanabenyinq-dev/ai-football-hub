@@ -242,7 +242,7 @@ export function Dashboard() {
                     {[[p.home_team,p.home_odds],[`Draw`,p.draw_odds],[p.away_team,p.away_odds]].map(([lbl,val],i)=>{
                       const picked = (i===0&&p.prediction_type.includes('home'))||(i===2&&p.prediction_type.includes('away'))||(i===1&&p.prediction_type==='draw')
                       return (
-                        <div key={i} style={{ flex:1, background:'var(--bg2)', border:`1px solid ${picked?'var(--green)':'var(--border2)'}`, background:picked?'var(--green-dim)':'var(--bg2)', borderRadius:10, padding:'8px 4px', textAlign:'center' }}>
+                        <div key={i} style={{ flex:1, background:picked?'var(--green-dim)':'var(--bg2)', border:`1px solid ${picked?'var(--green)':'var(--border2)'}`, borderRadius:10, padding:'8px 4px', textAlign:'center' }}>
                           <div style={{ fontSize:9, color:'var(--text3)' }}>{lbl as string}</div>
                           <div style={{ fontSize:15, fontWeight:800, color:picked?'var(--green)':'var(--text)' }}>{Number(val).toFixed(2)}</div>
                         </div>
